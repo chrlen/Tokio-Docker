@@ -1,15 +1,8 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-use rocket::config::{Config, Environment};
-
-let config = Config::build(Environment::Staging)
-    .address("127.0.0.1")
-    .port(80)
-    .workers(12)
-    .unwrap();
-
 #[macro_use]
 extern crate rocket;
+use rocket::config::{Config, Environment};
 // extern crate parquet;
 extern crate serde;
 use serde::{Deserialize, Serialize};
@@ -41,9 +34,20 @@ fn give_point(x: f64, y: f64) -> String {
 }
 
 fn main() {
-    rocket::ignite()
-        .mount("/hello_again", routes![hello_again])
+    let config = Config::build(Environment::Staging)
+        .address("0.0.0.0")
+        .port(80)
+        .workers(11)
+        .unwrap();
+    let app = rocket::custom(config);
+    app.mount("/hello_again", routes![hello_again])
         .mount("/give_point", routes![give_point])
         .mount("/hello", routes![hello])
         .launch();
+
+    //rocket::ignite()
+    //    .mount("/hello_again", routes![hello_again])
+    //    .mount("/give_point", routes![give_point])
+    //    .mount("/hello", routes![hello])
+    //    .launch();
 }
