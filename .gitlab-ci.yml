@@ -1,0 +1,23 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  key: the-one-key
+
+services:
+  - docker:dind
+
+variables:
+  IMAGE_TAG: localhost:5000/rust.brimborium.xyz:$CI_COMMIT_REF_SLUG
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+
+deploy:
+  stage: deploy
+  script:
+    - sh bash/deploy.bash $IMAGE_TAG

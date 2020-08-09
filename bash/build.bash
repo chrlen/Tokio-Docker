@@ -1,3 +1,3 @@
 # /bin/bash
 
-cargo +nightly build
+cargo +nightly build --release

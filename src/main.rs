@@ -2,9 +2,10 @@
 
 #[macro_use]
 extern crate rocket;
-extern crate parquet;
+// extern crate parquet;
 extern crate serde;
 use serde::{Deserialize, Serialize};
+use std::{thread, time};
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Point {
@@ -24,6 +25,9 @@ fn hello_again(name: String, age: u8) -> String {
 
 #[get("/<x>/<y>")]
 fn give_point(x: f64, y: f64) -> String {
+    let ten_millis = time::Duration::from_millis(10);
+
+    thread::sleep(ten_millis);
     let point = Point { x, y };
     serde_json::to_string(&point).unwrap()
 }
