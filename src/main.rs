@@ -1,5 +1,13 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
+use rocket::config::{Config, Environment};
+
+let config = Config::build(Environment::Staging)
+    .address("127.0.0.1")
+    .port(80)
+    .workers(12)
+    .unwrap();
+
 #[macro_use]
 extern crate rocket;
 // extern crate parquet;
