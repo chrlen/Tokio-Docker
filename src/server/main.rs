@@ -39,22 +39,22 @@ fn give_point(x: f64, y: f64) -> String {
 }
 
 fn main() {
-    // let config = Config::build(Environment::Staging)
-    //     .address("127.0.0.1")
-    //     .port(80)
-    //     .workers(11)
-    //     .unwrap();
-    // let app = rocket::custom(config);
-    // app.mount("/hello_again", routes![hello_again])
-    //     .mount("/give_point", routes![give_point])
-    //     .mount("/", routes![index])
-    //     .mount("/hello", routes![hello])
-    //     .launch();
-
-    rocket::ignite()
-        .mount("/hello_again", routes![hello_again])
+    let config = Config::build(Environment::Staging)
+        .address("127.0.0.1")
+        .port(8080)
+        .workers(11)
+        .unwrap();
+    let app = rocket::custom(config);
+    app.mount("/hello_again", routes![hello_again])
         .mount("/give_point", routes![give_point])
         .mount("/", routes![index])
         .mount("/hello", routes![hello])
         .launch();
+
+    //rocket::ignite()
+    //    .mount("/hello_again", routes![hello_again])
+    //    .mount("/give_point", routes![give_point])
+    //    .mount("/", routes![index])
+    //    .mount("/hello", routes![hello])
+    //    .launch();
 }
