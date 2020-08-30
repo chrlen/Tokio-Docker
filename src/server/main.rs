@@ -40,7 +40,7 @@ fn give_point(x: f64, y: f64) -> String {
 
 fn main() {
     let config = Config::build(Environment::Staging)
-        .address("0.0.0.0")
+        .address("127.0.0.1")
         .port(80)
         .workers(11)
         .unwrap();
