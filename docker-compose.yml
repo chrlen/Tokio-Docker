@@ -1,0 +1,9 @@
+version: '3'
+services:
+  rest:
+    image: "localhost:5000/rust.brimborium.xyz:master"
+    container_name: "simple-service"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web""
