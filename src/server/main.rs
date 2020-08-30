@@ -41,7 +41,7 @@ fn give_point(x: f64, y: f64) -> String {
 fn main() {
     let config = Config::build(Environment::Staging)
         .address("0.0.0.0")
-        .port(10001)
+        .port(80)
         .workers(11)
         .unwrap();
     let app = rocket::custom(config);
