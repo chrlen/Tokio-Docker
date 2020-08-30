@@ -14,6 +14,11 @@ struct Point {
     y: f64,
 }
 
+#[get("/")]
+fn index() -> String {
+    "Index".to_string()
+}
+
 #[get("/<name>/<age>")]
 fn hello(name: String, age: u8) -> String {
     format!("Hello, {} year old named {}!", age, name)
@@ -42,6 +47,7 @@ fn main() {
     let app = rocket::custom(config);
     app.mount("/hello_again", routes![hello_again])
         .mount("/give_point", routes![give_point])
+        .mount("/", routes![index])
         .mount("/hello", routes![hello])
         .launch();
 
