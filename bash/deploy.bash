@@ -1,15 +1,15 @@
-docker stop rust.brimborium.xyz
-docker rm rust.brimborium.xyz 
+docker stop tokio-docker
+docker rm tokio-docker 
 
 docker run -dit \
   --expose 443 \
   --expose 80 \
-  --name rust.brimborium.xyz \
+  --name tokio-docker \
   --restart always \
   --net web \
   --label="traefik.enable=true" \
-  --label="traefik.backend=rust.brimborium.xyz" \
-  --label="traefik.frontend.rule=Host:rust.brimborium.xyz" \
+  --label="traefik.backend=tokio-docker" \
+  --label="traefik.frontend.rule=Host:tokio-docker" \
   --label="traefik.docker.network=web" \
   --label="traefik.port=80" \
   ${1}
