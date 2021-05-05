@@ -19,18 +19,8 @@ fn index() -> String {
     "Index".to_string()
 }
 
-#[get("/<name>/<age>")]
-fn hello(name: String, age: u8) -> String {
-    format!("Hello, {} year old named {}!", age, name)
-}
-
-#[get("/<name>/<age>")]
-fn hello_again(name: String, age: u8) -> String {
-    format!("Hello, {} year old named {}!", age, name)
-}
-
 #[get("/<x>/<y>")]
-fn give_point(x: f64, y: f64) -> String {
+fn build_point(x: f64, y: f64) -> String {
     let ten_millis = time::Duration::from_millis(10);
 
     thread::sleep(ten_millis);
@@ -44,17 +34,10 @@ fn main() {
         .port(8080)
         .workers(11)
         .unwrap();
-    let app = rocket::custom(config);
-    app.mount("/hello_again", routes![hello_again])
-        .mount("/give_point", routes![give_point])
-        .mount("/", routes![index])
-        .mount("/hello", routes![hello])
-        .launch();
 
-    //rocket::ignite()
-    //    .mount("/hello_again", routes![hello_again])
-    //    .mount("/give_point", routes![give_point])
-    //    .mount("/", routes![index])
-    //    .mount("/hello", routes![hello])
-    //    .launch();
+    let app = rocket::custom(config);
+
+    app.mount("/build_point", routes![give_point])
+        .mount("/", routes![index])
+        .launch();
 }
