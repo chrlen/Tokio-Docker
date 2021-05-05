@@ -1,5 +1,5 @@
 [package]
-name = "rust_rest"
+name = "tokio-docker"
 version = "0.1.0"
 authors = ["chrlen <christian.lengert@tuta.io>"]
 edition = "2018"
