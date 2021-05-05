@@ -8,6 +8,11 @@ Then run the following commands to install a nightly Rust toolchain and build a 
 rustup install nightly
 cargo +nightly build --release
 ```
+To compile against [musl](https://musl.libc.org/) for deployment on Alpine Linux add a target as follows.
+
+```
+rustup target add x86_64-unknown-linux-musl
+```
 
 ## Docker
 
