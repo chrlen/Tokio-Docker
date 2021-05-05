@@ -9,7 +9,7 @@ services:
   - docker:dind
 
 variables:
-  IMAGE_TAG: localhost:5000/rust.brimborium.xyz:$CI_COMMIT_REF_SLUG
+  IMAGE_TAG: localhost:5000/tokio-docker:$CI_COMMIT_REF_SLUG
 
 build:
   stage: build

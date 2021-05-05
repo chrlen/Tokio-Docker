@@ -1,9 +1,10 @@
 version: '3'
 services:
   rest:
-    image: "localhost:5000/rust.brimborium.xyz:master"
+    image: "localhost:5000/tokio-docker:master"
     container_name: "simple-service"
     labels:
       - "traefik.enable=true"
+      # Modify this line and add Host router configuration for Traefik
       - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
-      - "traefik.http.routers.whoami.entrypoints=web""
+      - "traefik.http.routers.whoami.entrypoints=websecure""
