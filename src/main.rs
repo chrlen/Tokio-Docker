@@ -3,7 +3,7 @@
 #[macro_use]
 extern crate rocket;
 use rocket::config::{Config, Environment};
-// extern crate parquet;
+
 extern crate serde;
 use serde::{Deserialize, Serialize};
 use std::{thread, time};
@@ -19,11 +19,12 @@ fn index() -> String {
     "Index".to_string()
 }
 
+// Sleep and return serialized dummy object to simulate operation
 #[get("/<x>/<y>")]
 fn build_point(x: f64, y: f64) -> String {
     let ten_millis = time::Duration::from_millis(10);
-
     thread::sleep(ten_millis);
+
     let point = Point { x, y };
     serde_json::to_string(&point).unwrap()
 }
