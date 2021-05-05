@@ -20,6 +20,7 @@ Run the following line to build an image from the Dockerfile.
 ```
 docker build .
 ```
+Consider fixing the versions of the rust and alpine containers in the Dockerfile instead of using the "latest" tag.
 
 ## NixOS
 If you are on NixOS you can use the provided shell.nix.
