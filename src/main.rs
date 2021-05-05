@@ -37,7 +37,7 @@ fn main() {
 
     let app = rocket::custom(config);
 
-    app.mount("/build_point", routes![give_point])
+    app.mount("/build_point", routes![build_point])
         .mount("/", routes![index])
         .launch();
 }
