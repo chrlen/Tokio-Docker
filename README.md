@@ -1,5 +1,5 @@
 This repository provides a template for a service utilizing the Rust programming language and the [Tokio platform](https://github.com/tokio-rs/tokio).
-The templates includes a Dockerfile for building a small (11.4MB) Docker image based on Alpine linux and a docker-compose file to deploy the container while adding a route to Traefik.
+The templates includes a Dockerfile for building a small (11.4MB) Docker image based on Alpine Linux and a docker-compose file to deploy the container while adding a route to Traefik.
 
 # Setup
 Install the [Rustup](https://rustup.rs/) toolchain manager according to the instructions for your platform.
