@@ -1,3 +1,3 @@
 # /bin/bash
 
-cargo +nightly run --release --bin server
+cargo +nightly run --release
