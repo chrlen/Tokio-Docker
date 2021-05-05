@@ -3,7 +3,7 @@ let
 in
 with nixpkgs;
 stdenv.mkDerivation {
-  name = "music-reader-env";
+  name = "tokio-docker-env";
   buildInputs = [
     cargo
     rustc

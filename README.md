@@ -6,10 +6,12 @@ Building for Alpine Linux requires a cross-compilation to the musl runtime.
 
 # Setup
 Install the Rustup toolchain manager according to the instructions for your platform.
+Then run the following commands to install a nightly Rust toolchain and build a release binary.
 
 ```
+rustup install nightly
 rustup default nightly
-cargo build --release
+cargo +nightly build --release
 ```
 
 ## NixOS
