@@ -5,8 +5,7 @@ with nixpkgs;
 stdenv.mkDerivation {
   name = "tokio-docker-env";
   buildInputs = [
-    cargo
-    rustc
+    rustup
     pkgconfig
     openssl.dev
     nix
